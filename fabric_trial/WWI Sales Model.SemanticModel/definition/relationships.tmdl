@@ -1,0 +1,25 @@
+relationship 2ccde9e3-e94d-5f70-ba00-f8c7df11716c
+	relyOnReferentialIntegrity
+	fromColumn: fact_sale.CityKey
+	toColumn: dimension_city.CityKey
+
+relationship 6a8d8f27-3f71-ad0e-3f9a-12db73c79b01
+	relyOnReferentialIntegrity
+	fromColumn: fact_sale.CustomerKey
+	toColumn: dimension_customer.CustomerKey
+
+relationship 1c005af9-f9b0-f703-83ef-185017cc0e04
+	relyOnReferentialIntegrity
+	fromColumn: fact_sale.InvoiceDateKey
+	toColumn: dimension_date.Date
+
+relationship 665c2199-2e17-a2e5-cde5-766cf5fd30ff
+	relyOnReferentialIntegrity
+	fromColumn: fact_sale.SalespersonKey
+	toColumn: dimension_employee.EmployeeKey
+
+relationship a9e97f89-b92f-f7f1-5f3f-90d139b65bbb
+	relyOnReferentialIntegrity
+	fromColumn: fact_sale.StockItemKey
+	toColumn: dimension_stock_item.StockItemKey
+

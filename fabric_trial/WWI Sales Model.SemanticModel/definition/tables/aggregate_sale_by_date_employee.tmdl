@@ -1,0 +1,92 @@
+table aggregate_sale_by_date_employee
+	lineageTag: 727f7d25-7799-4060-974a-8ff526ee6a35
+	sourceLineageTag: [dbo].[aggregate_sale_by_date_employee]
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: eb5cb85f-acf9-4aa1-a915-9f016f3034f3
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a1695d52-bb13-414b-914a-cd51c527683d
+		sourceLineageTag: Month
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d742f564-6ad8-4a6f-bacc-d469b5264782
+		sourceLineageTag: Employee
+		summarizeBy: none
+		sourceColumn: Employee
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSalesperson
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 280b977d-dcb3-4c31-9b52-b92281b66215
+		sourceLineageTag: IsSalesperson
+		summarizeBy: none
+		sourceColumn: IsSalesperson
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum_of_total_excluding_tax
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: caf318e3-6560-4a90-bb69-ecaed3545a5b
+		sourceLineageTag: sum_of_total_excluding_tax
+		summarizeBy: sum
+		sourceColumn: sum_of_total_excluding_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_of_tax_amount
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: 58797d35-2475-4ea0-b2f1-9a64631f66a5
+		sourceLineageTag: sum_of_tax_amount
+		summarizeBy: sum
+		sourceColumn: sum_of_tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_of_profit
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: a541819f-48f5-4b41-ab56-f96297a3587d
+		sourceLineageTag: sum_of_profit
+		summarizeBy: sum
+		sourceColumn: sum_of_profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition aggregate_sale_by_date_employee = entity
+		mode: directLake
+		source
+			entityName: aggregate_sale_by_date_employee
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

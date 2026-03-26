@@ -1,0 +1,29 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Customer Dimension Data",
+  "queryGroups": [],
+  "documentLocale": "en-GB",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "f94b7df9-f786-4510-83c9-ee30eaff46b7",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dimension_customer": {
+      "queryId": "b91f61fc-3133-4ea3-883c-1d6e29b53b89",
+      "queryName": "dimension_customer",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f191e7b3-1f8e-4e82-8917-7b5d7bb2155e\",\"DatasourceId\":\"42834a2f-ac85-44b9-b433-328cf8c451f2\"}"
+    }
+  ]
+}

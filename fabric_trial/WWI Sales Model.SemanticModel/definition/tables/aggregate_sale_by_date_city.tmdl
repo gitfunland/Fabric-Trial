@@ -1,0 +1,101 @@
+table aggregate_sale_by_date_city
+	lineageTag: c3823421-f320-4710-8fb1-ddfcdf3562c8
+	sourceLineageTag: [dbo].[aggregate_sale_by_date_city]
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a29d4e10-3b90-4c3c-9323-ce4794d2ee7c
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1e8e801c-bfb1-44ed-95dd-f3ff5a8a85eb
+		sourceLineageTag: Month
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 4ac0f03d-cbe3-4a98-bbb9-77ac8fac615b
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateProvince
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f95bbb80-0a6f-4c66-92ad-a6a7d75e49ed
+		sourceLineageTag: StateProvince
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b74b7ee5-3e7c-46c7-aa00-83567d94a4ae
+		sourceLineageTag: SalesTerritory
+		summarizeBy: none
+		sourceColumn: SalesTerritory
+
+		annotation SummarizationSetBy = Automatic
+
+	column sum_of_total_excluding_tax
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: e69a1ba4-1468-48da-a764-040b6370a9ab
+		sourceLineageTag: sum_of_total_excluding_tax
+		summarizeBy: sum
+		sourceColumn: sum_of_total_excluding_tax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_of_tax_amount
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: 9162df69-0ecc-4c44-9da4-638b2f7ab7bf
+		sourceLineageTag: sum_of_tax_amount
+		summarizeBy: sum
+		sourceColumn: sum_of_tax_amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_of_profit
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: 870da68a-923f-4661-8a75-441e209244eb
+		sourceLineageTag: sum_of_profit
+		summarizeBy: sum
+		sourceColumn: sum_of_profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition aggregate_sale_by_date_city = entity
+		mode: directLake
+		source
+			entityName: aggregate_sale_by_date_city
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
